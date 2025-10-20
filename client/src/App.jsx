@@ -14,8 +14,9 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="" element={<Login />}></Route>
-        <Route index element={<Feed />}></Route>
+        <Route path="/" element={<Login />}></Route>
+            <Route  element={<Feed />}></Route>
+        {/* <Route index element={<Feed />}></Route> */}
         <Route path="messages" element={<Messages />}></Route>
         <Route path="messages/:userId" element={<ChatBox />}></Route>
         <Route path="connections" element={<Connections />}></Route>
