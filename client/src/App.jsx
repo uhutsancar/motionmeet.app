@@ -10,23 +10,25 @@ import Profile from "./pages/Profile";
 import CreatePost from "./pages/CreatePost";
 import { useUser } from "@clerk/clerk-react";
 import Layout from "./pages/Layout";
+import { dummyUserData } from "./assets/assets";
 
 const App = () => {
-  const { user } = useUser();
+  // const { user } = useUser();
+    const user = dummyUserData;
   return (
     <>
-      <Routes>
-        <Route path="/" element={user ? <Login /> : <Layout />}></Route>
-        <Route element={<Feed />}></Route>
-        {/* <Route index element={<Feed />}></Route> */}
-        <Route path="messages" element={<Messages />}></Route>
-        <Route path="messages/:userId" element={<ChatBox />}></Route>
-        <Route path="connections" element={<Connections />}></Route>
-        <Route path="discover" element={<Discover />}></Route>
-        <Route path="profile" element={<Profile />}></Route>
-        <Route path="profile/:profileId" element={<Profile />}></Route>
-        <Route path="create-post" element={<CreatePost />}></Route>
-      </Routes>
+    <Routes>
+  <Route path="/" element={user ? <Layout /> : <Login />}>
+    <Route index element={<Feed />} />              {/* 1️⃣ */}
+    <Route path="messages" element={<Messages />} /> {/* 2️⃣ */}
+    <Route path="messages/:userId" element={<ChatBox />} />
+    <Route path="connections" element={<Connections />} />
+    <Route path="discover" element={<Discover />} />
+    <Route path="profile" element={<Profile />} />
+    <Route path="profile/:profileId" element={<Profile />} />
+    <Route path="create-post" element={<CreatePost />} />
+  </Route>
+</Routes>
     </>
   );
 };
