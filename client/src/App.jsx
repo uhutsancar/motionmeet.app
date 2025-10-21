@@ -10,11 +10,11 @@ import Profile from "./pages/Profile";
 import CreatePost from "./pages/CreatePost";
 import { useUser } from "@clerk/clerk-react";
 import Layout from "./pages/Layout";
-import { dummyUserData } from "./assets/assets";
+
 
 const App = () => {
   const { user } = useUser();
-    // const user = dummyUserData;
+
   return (
     <>
     <Routes>
