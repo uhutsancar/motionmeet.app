@@ -28,9 +28,7 @@ const StoryModal = ({ setShadowModal, fetchStories }) => {
     }
   };
 
-  const handleCreateStory = async () => {
-    
-  };
+  const handleCreateStory = async () => {};
 
   return (
     <div className="fixed inset-0 z-110 min-h-screen bg-black/80 backdrop-blur text-white flex items-center justify-center p-4">
