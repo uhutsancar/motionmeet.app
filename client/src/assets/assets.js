@@ -46,7 +46,7 @@ const dummyUser2Data = {
     _id: "user_2",
     username: "Richard Hendricks",
     full_name: "Richard Hendricks",
-    profile_picture: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200",
+    profile_picture: "https://avatars.githubusercontent.com/u/189286029?s=400&u=09551cac7123ad16e9f14893c8c140e50267ccaa&v=4",
 }
 
 const dummyUser3Data = {
@@ -54,7 +54,7 @@ const dummyUser3Data = {
     _id: "user_3",
     username: "alexa_james",
     full_name: "Alexa james",
-    profile_picture: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&h=200&auto=format&fit=crop",
+    profile_picture: "https://avatars.githubusercontent.com/u/189286029?s=400&u=09551cac7123ad16e9f14893c8c140e50267ccaa&v=4",
 }
 
 export const dummyStoriesData = [
