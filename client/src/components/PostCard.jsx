@@ -14,14 +14,15 @@ const PostCard = ({ post }) => {
   const currentUser = dummyUserData;
 
   const handleLike = async () => {};
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div className="bg-white rounded-xl shadow p-4 space-y-4 w-full max-w-2xl">
       {/* User  Info */}
       <div
-      onClick={() => navigate('/profile/' + post.user.username)} //normalde user_id
-      className="inline-flex items-center gap-3 cursor-pointer">
+        onClick={() => navigate("/profile/" + post.user.username)} //normalde user_id
+        className="inline-flex items-center gap-3 cursor-pointer"
+      >
         <img
           src={post.user.profile_picture}
           alt="Post Profile Picture"
