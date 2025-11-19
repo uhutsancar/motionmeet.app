@@ -1,5 +1,5 @@
-import logo from './logo.svg'
-import sample_cover from './sample_cover.jpg'
+import logo from './motionmeet_logo.svg'
+import sample_cover from './motionmeet_logo.svg'
 import sample_profile from './sample_profile.jpg'
 import bgImage from './bgImage.png'
 import group_users from './group_users.png'
@@ -29,7 +29,7 @@ export const dummyUserData = {
     "full_name": "Uhut Sancar",
     "username": "uhut_sancar",
     "bio": "🌍 Dreamer | 📚 Learner | 🚀 Doer\r\nExploring life one step at a time.\r\n✨ Staying curious. Creating with purpose.",
-    "profile_picture": sample_profile,
+    "profile_picture": "https://avatars.githubusercontent.com/u/189286029?s=400&u=09551cac7123ad16e9f14893c8c140e50267ccaa&v=4",
     "cover_photo": sample_cover,
     "location": "New York, NY",
     "followers": ["user_2", "user_3"],
@@ -127,7 +127,7 @@ export const dummyPostsData = [
         "user": dummyUserData,
         "content": "We're a small #team with a big vision — working day and night to turn dreams into products, and #products into something people love.",
         "image_urls": [
-            "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg"
+            "https://media.istockphoto.com/id/2211259488/photo/young-adult-man-jumping-the-rope-in-gym-before-training.jpg?b=1&s=612x612&w=0&k=20&c=-EQYeNw4GaihX2b6IlhLYF1O4SpffRurU0teDci1zKM="
         ],
         "post_type": "text_with_image",
         "likes_count": [],

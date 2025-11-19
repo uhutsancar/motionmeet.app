@@ -20,7 +20,7 @@ const SideBar = ({ sideBarOpen, setSideBarOpen }) => {
           onClick={() => navigate("/")}
           src={assets.logo}
           alt="Logo"
-          className="w-26 ml-7 my-2 cursor-pointer"
+          className="w-40 ml-7 my-2 cursor-pointer"
         />
         <hr className="border-gray-300 mb-8" />
 
