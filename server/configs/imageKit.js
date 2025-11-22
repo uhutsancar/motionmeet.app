@@ -9,13 +9,6 @@
 // export default imagekit
 
 
-
-
-
-
-
-
-
 import ImageKit from "imagekit";
 import dotenv from "dotenv";
 
