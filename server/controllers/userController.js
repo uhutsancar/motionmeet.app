@@ -1,4 +1,5 @@
 import imagekit from "../configs/imageKit.js";
+import { inngest } from "../inngest/index.js";
 import Connection from "../models/Connection.js";
 import Post from "../models/Post.js";
 import User from "../models/User.js";
@@ -197,16 +198,23 @@ export const sendConnectionRequest = async (req, res) => {
     //Check if users are already connect
     const connection = await Connection.findOne({
       $or: [
+        //burası rom olabılır
         { from_user_id: userId, to_user_id: id },
         { from_user_id: id, to_user_id: userId },
       ],
     });
 
     if (!connection) {
-      await Connection.create({
+   const newConnection = await Connection.create({
         from_user_id: userId,
         to_user_id: id,
       });
+
+     await inngest.send({
+      name: 'app/connection-request',
+      data: {connectionId: newConnection._id}
+     })
+
       return res.json({
         success: true,
         message: "Connection request sent successfully",
