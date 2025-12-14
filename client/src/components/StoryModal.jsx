@@ -17,7 +17,6 @@ const StoryModal = ({ setShowModal, fetchStories }) => {
 
   const [mode, setMode] = useState("text");
   const [background, setBackground] = useState(bgColors[0]);
-  7;
   const [text, setText] = useState("");
   const [media, setMedia] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
