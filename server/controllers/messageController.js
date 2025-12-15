@@ -6,9 +6,7 @@ const connections = {};
 
 export const sseController = (req, res) => {
   const { userId } = req.params;
-  console.log("New SSE client:", userId);
 
-  // SSE headers
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
   res.setHeader("Connection", "keep-alive");
@@ -20,18 +18,18 @@ export const sseController = (req, res) => {
 
   connections[userId].push(res);
 
-  res.write("data: connected\n\n");
+  res.write(`data: ${JSON.stringify({ type: "connected" })}\n\n`);
 
   const heartbeat = setInterval(() => {
     res.write(":ping\n\n");
   }, 15000);
 
   req.on("close", () => {
-    console.log("SSE disconnected:", userId);
-
     clearInterval(heartbeat);
 
-    connections[userId] = connections[userId].filter((conn) => conn !== res);
+    connections[userId] = connections[userId].filter(
+      (conn) => conn !== res
+    );
 
     if (connections[userId].length === 0) {
       delete connections[userId];
@@ -77,17 +75,18 @@ export const sendMessage = async (req, res) => {
 
     res.json({ success: true, message });
 
-    const messageWithUserData = await Message.findById(message._id).populate(
-      "from_user_id"
-    );
+    const messageWithUserData = await Message.findById(
+      message._id
+    ).populate("from_user_id");
 
     if (connections[to_user_id]) {
       connections[to_user_id].forEach((conn) => {
-        conn.write(`data: ${JSON.stringify(messageWithUserData)}\n\n`);
+        conn.write(
+          `data: ${JSON.stringify(messageWithUserData)}\n\n`
+        );
       });
     }
   } catch (error) {
-    console.error(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -111,7 +110,6 @@ export const getChatMessages = async (req, res) => {
 
     res.json({ success: true, messages });
   } catch (error) {
-    console.error(error);
     res.json({ success: false, message: error.message });
   }
 };
@@ -120,13 +118,14 @@ export const getUserRecentMessages = async (req, res) => {
   try {
     const { userId } = req.auth();
 
-    const messages = await Message.find({ to_user_id: userId })
+    const messages = await Message.find({
+      to_user_id: userId,
+    })
       .populate("from_user_id to_user_id")
       .sort({ created_at: -1 });
 
     res.json({ success: true, messages });
   } catch (error) {
-    console.error(error);
     res.json({ success: false, message: error.message });
   }
 };
